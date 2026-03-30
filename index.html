@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú Restaurante</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    position: sticky;
+    top: 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* CATEGORÍAS */
+.nav {
+    display: flex;
+    overflow-x: auto;
+    background: #1a1a1a;
+}
+
+.nav button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 14px;
+}
+
+.nav button.active {
+    border-bottom: 3px solid #ff9800;
+}
+
+/* CONTENIDO */
+.section {
+    display: none;
+    padding: 15px;
+}
+
+.section.active {
+    display: block;
+}
+
+/* ITEM */
+.item {
+    background: #1e1e1e;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.item h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.price {
+    float: right;
+    color: #ff9800;
+}
+
+.desc {
+    font-size: 13px;
+    color: #bbb;
+}
+
+/* BOTÓN WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🍔 Tu Restaurante</h1>
+</header>
+
+<div class="nav">
+    <button class="active" onclick="show('entrantes')">Entrantes</button>
+    <button onclick="show('principales')">Principales</button>
+    <button onclick="show('postres')">Postres</button>
+    <button onclick="show('bebidas')">Bebidas</button>
+</div>
+
+<!-- ENTRANTES -->
+<div id="entrantes" class="section active">
+    <div class="item">
+        <h3>Nachos <span class="price">6€</span></h3>
+        <p class="desc">Con queso y guacamole</p>
+    </div>
+    <div class="item">
+        <h3>Alitas BBQ <span class="price">8€</span></h3>
+        <p class="desc">Picantes o suaves</p>
+    </div>
+</div>
+
+<!-- PRINCIPALES -->
+<div id="principales" class="section">
+    <div class="item">
+        <h3>Hamburguesa Clásica <span class="price">10€</span></h3>
+        <p class="desc">Carne, queso, lechuga, tomate</p>
+    </div>
+    <div class="item">
+        <h3>Pizza Margarita <span class="price">9€</span></h3>
+        <p class="desc">Tomate, mozzarella, albahaca</p>
+    </div>
+</div>
+
+<!-- POSTRES -->
+<div id="postres" class="section">
+    <div class="item">
+        <h3>Tarta de Chocolate <span class="price">5€</span></h3>
+    </div>
+</div>
+
+<!-- BEBIDAS -->
+<div id="bebidas" class="section">
+    <div class="item">
+        <h3>Coca-Cola <span class="price">2€</span></h3>
+    </div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/34600000000">📲 Pedir</a>
+
+<script>
+function show(section) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+
+    document.getElementById(section).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
